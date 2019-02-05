@@ -7,3 +7,42 @@
 
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>
+
+
+<%= form_with(model: [@category, @product], local: true) do |form| %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.number_field :price %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
+<% end %>
+
+<table class="table">
+
+<tr>
+  <th>Product</th>
+  <th>Price</th>
+
+</tr>
+
+<tr>
+  <%@category.products.each do |product| %>
+
+  <td><%= product.name %></td>
+  <td><%= product.price %></td>
+</tr>
+<% end %>
+
+
+
+
+</table>
