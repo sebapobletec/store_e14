@@ -13,6 +13,13 @@ class ProductsController < ApplicationController
     redirect_to @category
   end
 
+  def destroy
+    @category = Category.find(params[:category_id])
+    @product = Product.find(params[:id])
+    @product.category = @category
+    @product.destroy
+    redirect_to @category
+  end
 
   private
   def product_params

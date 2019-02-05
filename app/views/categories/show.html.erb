@@ -31,6 +31,7 @@
 <tr>
   <th>Product</th>
   <th>Price</th>
+  <th></th>
 
 </tr>
 
@@ -39,6 +40,10 @@
 
   <td><%= product.name %></td>
   <td><%= product.price %></td>
+  <td><%= link_to 'Delete', category_product_path(@category , product) , method: :delete, class: "btn btn-danger btn-sm" %>
+  </td>
+
+
 </tr>
 <% end %>
 
